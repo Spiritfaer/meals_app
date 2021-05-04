@@ -11,12 +11,9 @@ class CategoryMealsScreen extends StatelessWidget {
         ModalRoute.of(context).settings.arguments as Map<int, Object>;
     final categoriesTitle = (routeArgs[1] as Category).title;
     return Scaffold(
-      appBar: AppBar(
-        title: Text(categoriesTitle),
-      ),
-      body: Center(
-        child: const Text('Some text on the center!'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text(categoriesTitle),
+        ),
+        body: ListView.builder(itemBuilder: (ctx, index) {}));
   }
 }
