@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import './category_meals_screen.dart';
 import './categories_screen.dart';
 
 void main() {
@@ -16,7 +17,6 @@ class MyApp extends StatelessWidget {
           accentColor: Colors.orange,
           canvasColor: Color.fromRGBO(255, 254, 229, 1),
           fontFamily: 'RobotoCondensed',
-          // fontFamily: 'Raleway',
           textTheme: ThemeData.light().textTheme.copyWith(
                 bodyText1: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
                 bodyText2: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
@@ -24,10 +24,12 @@ class MyApp extends StatelessWidget {
                   fontSize: 16,
                   fontFamily: 'Raleway',
                   fontWeight: FontWeight.bold,
-                  // fontFamily: 'RobotoCondensed',
                 ),
               )),
       home: CategoriesScreen(),
+      routes: {
+        '/screen-meals': (ctx) => CategoryMealsScreen(),
+      },
     );
   }
 }
