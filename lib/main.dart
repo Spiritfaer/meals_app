@@ -13,22 +13,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Meals App',
       theme: ThemeData(
-          primarySwatch: Colors.blue,
-          accentColor: Colors.orange,
-          canvasColor: Color.fromRGBO(255, 254, 229, 1),
-          fontFamily: 'RobotoCondensed',
-          textTheme: ThemeData.light().textTheme.copyWith(
-                bodyText1: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-                bodyText2: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
-                headline1: TextStyle(
-                  fontSize: 16,
-                  fontFamily: 'Raleway',
-                  fontWeight: FontWeight.bold,
-                ),
-              )),
-      home: CategoriesScreen(),
+        primarySwatch: Colors.blue,
+        accentColor: Colors.orange,
+        canvasColor: Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'RobotoCondensed',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              bodyText1: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              bodyText2: TextStyle(color: Color.fromRGBO(20, 51, 51, 1)),
+              headline1: TextStyle(
+                fontSize: 16,
+                fontFamily: 'Raleway',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+      ),
+      initialRoute: '/',
       routes: {
-        '/screen-meals': (ctx) => CategoryMealsScreen(),
+        '/': (ctx) => CategoriesScreen(),
+        CategoryMealsScreen.routeName: (ctx) => CategoryMealsScreen(),
       },
     );
   }
