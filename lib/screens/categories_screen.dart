@@ -5,6 +5,7 @@ import '../dummy_data.dart';
 
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({Key key}) : super(key: key);
+  static const String titleScreen = 'Categories';
 
   @override
   Widget build(BuildContext context) {
