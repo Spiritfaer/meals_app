@@ -4,8 +4,11 @@ import '../dummy_data.dart';
 import '../models/meal.dart';
 
 class MealDetailScreen extends StatelessWidget {
-  const MealDetailScreen({Key key}) : super(key: key);
+  const MealDetailScreen({Key key, this.toggleFaforite, this.isMealFavorite})
+      : super(key: key);
   static const String routeName = '/screen-detail-meals';
+  final Function toggleFaforite;
+  final Function isMealFavorite;
 
   Widget _buildSectionTitle(BuildContext ctx, String title) {
     return Container(
@@ -34,9 +37,9 @@ class MealDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String mealsID = ModalRoute.of(context).settings.arguments as String;
+    final String mealID = ModalRoute.of(context).settings.arguments as String;
     final Meal selectedMeal =
-        DUMMY_MEALS.firstWhere((element) => element.id == mealsID);
+        DUMMY_MEALS.firstWhere((element) => element.id == mealID);
     return Scaffold(
       appBar: AppBar(
         title: Text('${selectedMeal.title}'),
@@ -89,9 +92,9 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.delete),
+        child: Icon(isMealFavorite(mealID) ? Icons.star : Icons.star_border),
         onPressed: () {
-          Navigator.of(context).pop(mealsID);
+          toggleFaforite(mealID);
         },
       ),
     );
